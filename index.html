@@ -2,83 +2,150 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
   <title>Understanding Virality</title>
-  <!-- Reveal.js стили -->
-  <link rel="stylesheet" href="https://unpkg.com/reveal.js@4/dist/reveal.css" />
-  <link rel="stylesheet" href="https://unpkg.com/reveal.js@4/dist/theme/white.css" id="theme" />
   <style>
-    /* Дополнительные стили для титула */
-    .reveal h1 {
-      font-size: 3em;
-      color: #1a73e8;
-      margin-bottom: 0.2em;
+    /* общий сброс */
+    * { margin:0; padding:0; box-sizing:border-box; }
+    html, body {
+      height:100%;
+      overflow-y: scroll;
+      scroll-behavior: smooth;
+      scroll-snap-type: y mandatory;
+      font-family: 'Segoe UI', sans-serif;
     }
-    .reveal h2 {
-      font-size: 1.5em;
+    section {
+      height:100vh;
+      scroll-snap-align: start;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding:20px;
+      text-align: center;
+    }
+
+    /* первый экран (титул) */
+    #slide1 {
+      background: linear-gradient(135deg, #0093E9, #80D0C7);
+      color: #fff;
+      flex-direction: column;
+    }
+    #slide1 h1 {
+      font-size:3em;
+      margin-bottom:0.3em;
+    }
+    #slide1 h2 {
+      font-size:1.5em;
+      font-weight:300;
+      margin-bottom:0.5em;
+    }
+    #slide1 p { opacity:0.9; }
+
+    /* второй экран */
+    #slide2 {
+      background: #f0f5fa;
       color: #333;
-      font-weight: 300;
+      flex-direction: column;
     }
-    .reveal .author {
-      margin-top: 1em;
-      font-size: 1em;
-      color: #555;
+    #slide2 h2 {
+      font-size:2.2em;
+      color: #006494;
+      margin-bottom:0.5em;
     }
-    /* Слайд-контент */
-    .content h2 {
-      color: #1a73e8;
-      margin-bottom: 0.5em;
+    #slide2 p {
+      max-width:700px;
+      font-size:1.15em;
+      line-height:1.4;
+      margin-bottom:1em;
     }
-    .content p {
+    #slide2 p strong { color:#0077b6; }
+
+    /* кнопки навигации */
+    .nav-arrows {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 15px;
+    }
+    .nav-arrows button {
+      background: rgba(0,0,0,0.5);
+      border: none;
+      color: #fff;
+      padding: 10px 14px;
       font-size: 1.2em;
-      line-height: 1.4;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background 0.2s;
     }
-    .content p strong {
-      color: #1a73e8;
+    .nav-arrows button:hover {
+      background: rgba(0,0,0,0.7);
+    }
+    .nav-arrows button:disabled {
+      opacity: 0.3;
+      cursor: default;
     }
   </style>
 </head>
 <body>
 
-  <div class="reveal">
-    <div class="slides">
+  <!-- Слайд 1 -->
+  <section id="slide1">
+    <h1>Understanding Virality in Social Media</h1>
+    <h2>Platform, Content, and Emotional Drivers</h2>
+    <p>Zhuldyz Askarbekkyzy</p>
+  </section>
 
-      <!-- 1. Титульный слайд -->
-      <section>
-        <h1>Understanding Virality in Social Media</h1>
-        <h2>Platform, Content, and Emotional Drivers</h2>
-        <p class="author">Zhuldyz Askarbekkyzy</p>
-      </section>
+  <!-- Слайд 2 -->
+  <section id="slide2">
+    <h2>What Makes a Post Go Viral?</h2>
+    <p>
+      Social media plays a big role in today’s communication, but only a few posts go truly viral.
+      This project explores what makes a post viral by analyzing <strong>5,000 top-performing posts</strong>
+      from TikTok, Instagram, YouTube, and Twitter.
+    </p>
+    <p>
+      It focuses on <strong>platform differences, content types, and emotions</strong>
+      to understand which factors drive views, likes, shares, and comments.
+    </p>
+  </section>
 
-      <!-- 2. Содержательный слайд -->
-      <section class="content">
-        <h2>What Makes a Post Go Viral?</h2>
-        <p>
-          Social media plays a big role in today’s communication, but only a few posts go truly viral.
-          This project explores what makes a post viral by analyzing <strong>5,000 top-performing posts</strong>
-          from TikTok, Instagram, YouTube, and Twitter.
-        </p>
-        <p>
-          It focuses on <strong>platform differences, content types, and emotions</strong>
-          to understand which factors drive views, likes, shares, and comments.
-        </p>
-      </section>
-
-    </div>
+  <!-- Стрелки -->
+  <div class="nav-arrows">
+    <button id="upBtn" onclick="navigate(-1)">↑</button>
+    <button id="downBtn" onclick="navigate(1)">↓</button>
   </div>
 
-  <!-- Reveal.js скрипты -->
-  <script src="https://unpkg.com/reveal.js@4/dist/reveal.js"></script>
   <script>
-    Reveal.initialize({
-      hash: true,
-      navigationMode: 'default',
-      slideNumber: true,
-      progress: true,
-      center: true,
-      transition: 'fade' // или 'slide', 'convex', 'concave'
+    const sections = Array.from(document.querySelectorAll('section'));
+    let current = 0;
+
+    function updateButtons() {
+      document.getElementById('upBtn').disabled = current === 0;
+      document.getElementById('downBtn').disabled = current === sections.length - 1;
+    }
+
+    function navigate(direction) {
+      current = Math.min(Math.max(current + direction, 0), sections.length - 1);
+      sections[current].scrollIntoView();
+      updateButtons();
+    }
+
+    // при скролле определяем текущий раздел
+    window.addEventListener('scroll', () => {
+      const mid = window.innerHeight / 2;
+      sections.forEach((sec, i) => {
+        const rect = sec.getBoundingClientRect();
+        if (rect.top <= mid && rect.bottom >= mid) current = i;
+      });
+      updateButtons();
     });
+
+    // инициализация
+    updateButtons();
   </script>
+
 </body>
 </html>
 
