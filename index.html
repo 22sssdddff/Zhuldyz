@@ -2,96 +2,104 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
   <title>Understanding Virality</title>
 
-  <!-- Swiper CSS -->
+  <!-- Swiper стили -->
   <link
     rel="stylesheet"
     href="https://unpkg.com/swiper/swiper-bundle.min.css"
   />
 
   <style>
-    /* Сброс и базовая типографика */
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #f5f7fa;
-      color: #333;
-      overflow: hidden; /* чтобы слайдер сразу подогнал высоту */
+    /* сброс */
+    * { box-sizing: border-box; margin:0; padding:0; }
+    html, body { height:100%; }
+
+    /* контейнер слайдера на весь экран */
+    .swiper-container {
+      width: 100%;
+      height: 100%;
     }
 
-    /* Контейнер Swiper */
-    .swiper-container {
-      width: 100vw;
-      height: 100vh;
-    }
+    /* каждый слайд */
     .swiper-slide {
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      padding: 2rem;
       text-align: center;
-    }
-    .swiper-slide h1 {
-      font-size: 3rem;
-      color: #1a73e8;
-      margin-bottom: 0.5em;
-    }
-    .swiper-slide h2 {
-      font-size: 2rem;
-      margin-bottom: 1em;
-    }
-    .swiper-slide p {
-      font-size: 1.1rem;
-      max-width: 600px;
-      line-height: 1.5;
+      padding: 0 20px;
     }
 
-    /* Стили для таблицы на 4-м слайде */
-    .slide4 table {
-      border-collapse: collapse;
-      width: 100%;
-      max-width: 500px;
-      margin: 1rem auto;
-    }
-    .slide4 th,
-    .slide4 td {
-      border: 1px solid #ccc;
-      padding: 0.5rem;
-    }
-    .slide4 th {
-      background: #1a73e8;
+    /* стили для титула */
+    .slide1 {
+      background: linear-gradient(135deg, #0093E9, #80D0C7);
       color: white;
     }
+    .slide1 h1 {
+      font-size: 3em;
+      margin-bottom: 0.2em;
+    }
+    .slide1 h2 {
+      font-size: 1.5em;
+      font-weight: 300;
+      margin-bottom: 0.5em;
+    }
+    .slide1 p {
+      font-size: 1em;
+      opacity: 0.9;
+    }
 
-    /* Пагинация (точки) */
+    /* стили для контента */
+    .slide2 {
+      background: #f0f5fa;
+      color: #333;
+    }
+    .slide2 h2 {
+      font-size: 2.2em;
+      color: #006494;
+      margin-bottom: 0.5em;
+    }
+    .slide2 p {
+      max-width: 700px;
+      font-size: 1.15em;
+      line-height: 1.4;
+      margin-bottom: 1em;
+    }
+    .slide2 p strong {
+      color: #0077b6;
+    }
+
+    /* навигационные стрелки */
+    .swiper-button-next,
+    .swiper-button-prev {
+      color: #0077b6;
+    }
+
+    /* пагинация точками */
     .swiper-pagination-bullet {
-      background: #888;
-      opacity: 1;
+      background: #0077b6;
+      opacity: 0.6;
     }
     .swiper-pagination-bullet-active {
-      background: #1a73e8;
+      opacity: 1;
     }
   </style>
 </head>
-
 <body>
-  <!-- Слайдер -->
+
+  <!-- Swiper -->
   <div class="swiper-container">
     <div class="swiper-wrapper">
-      <!-- Слайд 1 -->
+      <!-- Слайд 1: Титул -->
       <div class="swiper-slide slide1">
         <h1>Understanding Virality in Social Media</h1>
         <h2>Platform, Content, and Emotional Drivers</h2>
         <p>Zhuldyz Askarbekkyzy</p>
       </div>
 
-      <!-- Слайд 2 -->
+      <!-- Слайд 2: Контент -->
       <div class="swiper-slide slide2">
         <h2>What Makes a Post Go Viral?</h2>
         <p>
@@ -99,42 +107,17 @@
           This project explores what makes a post viral by analyzing
           <strong>5,000 top-performing posts</strong> from TikTok, Instagram, YouTube, and Twitter.
         </p>
-      </div>
-
-      <!-- Слайд 3 -->
-      <div class="swiper-slide slide3">
-        <h2>Dataset Overview</h2>
         <p>
-          We analyzed a dataset of <strong>5,000 viral social media posts</strong> from TikTok, Instagram,
-          YouTube, and Twitter. Each record includes views, likes, shares, comments, main hashtag,
-          content type, and platform.
-        </p>
-      </div>
-
-      <!-- Слайд 4 -->
-      <div class="swiper-slide slide4">
-        <h2>High-Engagement Posts by Platform</h2>
-        <table>
-          <thead>
-            <tr>
-              <th>Platform</th>
-              <th>High-Engagement Posts</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td>TikTok</td>     <td>450</td></tr>
-            <tr><td>Instagram</td>  <td>400</td></tr>
-            <tr><td>YouTube</td>    <td>250</td></tr>
-            <tr><td>Twitter</td>    <td>150</td></tr>
-          </tbody>
-        </table>
-        <p>
-          TikTok leads with ~36% of viral hits, Instagram ~32%, YouTube+Twitter ~32% together.
+          It focuses on <strong>platform differences, content types, and emotions</strong>
+          to understand which factors drive views, likes, shares, and comments.
         </p>
       </div>
     </div>
 
-    <!-- Точки-пагинация -->
+    <!-- Кнопки навигации -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+    <!-- Пагинация -->
     <div class="swiper-pagination"></div>
   </div>
 
@@ -142,13 +125,18 @@
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   <script>
     const swiper = new Swiper('.swiper-container', {
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true
-      },
+      direction: 'vertical',
+      loop: false,
       mousewheel: true,
       keyboard: true,
-      loop: false
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
     });
   </script>
 </body>
