@@ -25,23 +25,55 @@
       max-width: 700px;
       margin: 20px;
     }
-    h1 {
-      font-size: 2.5em;
-      margin-bottom: 0.5em;
-      color: #1a73e8;
+    .slide {
+      display: none;
     }
-    h2 {
-      font-weight: normal;
-      font-size: 1.2em;
-      color: #555;
+    .slide.active {
+      display: block;
+    }
+    button {
+      margin-top: 30px;
+      padding: 10px 20px;
+      font-size: 1em;
+      border: none;
+      background: #1a73e8;
+      color: white;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #155ab6;
     }
   </style>
 </head>
 <body>
-  <div class="card">
+  <div class="card slide active" id="slide1">
     <h1>Understanding Virality in Social Media</h1>
     <h2>Platform, Content, and Emotional Drivers</h2>
     <p style="margin-top: 40px; font-size: 1em;">Zhuldyz Askarbekkyzy</p>
+    <button onclick="nextSlide()">Next →</button>
   </div>
+
+  <div class="card slide" id="slide2">
+    <h1>What Makes Content Go Viral?</h1>
+    <p style="margin-top: 20px; font-size: 1.1em;">
+      ✅ Emotionally charged content<br>
+      ✅ Relatable storytelling<br>
+      ✅ Platform-specific formats (Reels, TikTok, Threads)
+    </p>
+    <button onclick="prevSlide()">← Back</button>
+  </div>
+
+  <script>
+    function nextSlide() {
+      document.getElementById("slide1").classList.remove("active");
+      document.getElementById("slide2").classList.add("active");
+    }
+    function prevSlide() {
+      document.getElementById("slide2").classList.remove("active");
+      document.getElementById("slide1").classList.add("active");
+    }
+  </script>
 </body>
 </html>
+
