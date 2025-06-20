@@ -4,106 +4,82 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Understanding Virality</title>
+  <!-- Reveal.js стили -->
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@4/dist/reveal.css" />
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@4/dist/theme/white.css" id="theme" />
   <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to right, #dfe9f3, #ffffff);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      color: #222;
+    /* Дополнительные стили для титула */
+    .reveal h1 {
+      font-size: 3em;
+      color: #1a73e8;
+      margin-bottom: 0.2em;
     }
-    .card {
-      text-align: center;
-      border-radius: 20px;
-      padding: 40px;
-      background: white;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-      max-width: 700px;
-      margin: 20px;
+    .reveal h2 {
+      font-size: 1.5em;
+      color: #333;
+      font-weight: 300;
     }
-    .slide {
-      display: none;
-    }
-    .slide.active {
-      display: block;
-    }
-    button {
-      margin-top: 30px;
-      padding: 10px 20px;
+    .reveal .author {
+      margin-top: 1em;
       font-size: 1em;
-      border: none;
-      background: #1a73e8;
-      color: white;
-      border-radius: 10px;
-      cursor: pointer;
+      color: #555;
     }
-    button:hover {
-      background: #155ab6;
+    /* Слайд-контент */
+    .content h2 {
+      color: #1a73e8;
+      margin-bottom: 0.5em;
+    }
+    .content p {
+      font-size: 1.2em;
+      line-height: 1.4;
+    }
+    .content p strong {
+      color: #1a73e8;
     }
   </style>
 </head>
 <body>
-  <div class="card slide active" id="slide1">
-    <h1>Understanding Virality in Social Media</h1>
-    <h2>Platform, Content, and Emotional Drivers</h2>
-    <p style="margin-top: 40px; font-size: 1em;">Zhuldyz Askarbekkyzy</p>
-    <button onclick="nextSlide()">Next →</button>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- 1. Титульный слайд -->
+      <section>
+        <h1>Understanding Virality in Social Media</h1>
+        <h2>Platform, Content, and Emotional Drivers</h2>
+        <p class="author">Zhuldyz Askarbekkyzy</p>
+      </section>
+
+      <!-- 2. Содержательный слайд -->
+      <section class="content">
+        <h2>What Makes a Post Go Viral?</h2>
+        <p>
+          Social media plays a big role in today’s communication, but only a few posts go truly viral.
+          This project explores what makes a post viral by analyzing <strong>5,000 top-performing posts</strong>
+          from TikTok, Instagram, YouTube, and Twitter.
+        </p>
+        <p>
+          It focuses on <strong>platform differences, content types, and emotions</strong>
+          to understand which factors drive views, likes, shares, and comments.
+        </p>
+      </section>
+
+    </div>
   </div>
 
-  <div class="card slide" id="slide2">
-    <h1>What Makes Content Go Viral?</h1>
-    <p style="margin-top: 20px; font-size: 1.1em;">
-      ✅ Emotionally charged content<br>
-      ✅ Relatable storytelling<br>
-      ✅ Platform-specific formats (Reels, TikTok, Threads)
-    </p>
-    <button onclick="prevSlide()">← Back</button>
-  </div>
-
+  <!-- Reveal.js скрипты -->
+  <script src="https://unpkg.com/reveal.js@4/dist/reveal.js"></script>
   <script>
-    function nextSlide() {
-      document.getElementById("slide1").classList.remove("active");
-      document.getElementById("slide2").classList.add("active");
-    }
-    function prevSlide() {
-      document.getElementById("slide2").classList.remove("active");
-      document.getElementById("slide1").classList.add("active");
-    }
+    Reveal.initialize({
+      hash: true,
+      navigationMode: 'default',
+      slideNumber: true,
+      progress: true,
+      center: true,
+      transition: 'fade' // или 'slide', 'convex', 'concave'
+    });
   </script>
 </body>
 </html>
-<p style="margin-top: 40px; font-size: 1em;">Zhuldyz Askarbekkyzy</p>
 
-<a href="#next" style="
-  display: inline-block;
-  margin-top: 30px;
-  padding: 10px 25px;
-  font-size: 1em;
-  background-color: #1a73e8;
-  color: white;
-  border-radius: 10px;
-  text-decoration: none;
-  transition: background 0.3s;
-">Next →</a>
-<div id="next" style="
-  padding: 60px 20px;
-  background: #f5faff;
-  text-align: center;
-  font-family: 'Segoe UI', sans-serif;
-">
-  <h2 style="color: #1a73e8; font-size: 2em;">What Makes a Post Go Viral?</h2>
-  <p style="max-width: 700px; margin: 20px auto; font-size: 1.2em; color: #333;">
-    Social media plays a big role in today’s communication, but only a few posts go truly viral.
-    This project explores what makes a post viral by analyzing <strong>5,000 top-performing posts</strong>
-    from TikTok, Instagram, YouTube, and Twitter.
-  </p>
-  <p style="max-width: 700px; margin: 10px auto; font-size: 1.2em; color: #333;">
-    It focuses on <strong>platform differences, content types, and emotions</strong>
-    to understand which factors drive views, likes, shares, and comments.
-  </p>
-</div>
 
