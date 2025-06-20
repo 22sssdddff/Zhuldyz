@@ -1,79 +1,155 @@
-<!-- 1) Подключаем стили Swiper в <head> -->
-<link
-  rel="stylesheet"
-  href="https://unpkg.com/swiper/swiper-bundle.min.css"
-/>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+  <title>Understanding Virality</title>
 
-<!-- 2) В теле страницы -->
-<div class="swiper-container">
-  <div class="swiper-wrapper">
-    <!-- Слайд 1 -->
-    <div class="swiper-slide slide1">
-      <h1>Understanding Virality in Social Media</h1>
-      <h2>Platform, Content, and Emotional Drivers</h2>
-      <p>Zhuldyz Askarbekkyzy</p>
+  <!-- Swiper CSS -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/swiper/swiper-bundle.min.css"
+  />
+
+  <style>
+    /* Сброс и базовая типографика */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f5f7fa;
+      color: #333;
+      overflow: hidden; /* чтобы слайдер сразу подогнал высоту */
+    }
+
+    /* Контейнер Swiper */
+    .swiper-container {
+      width: 100vw;
+      height: 100vh;
+    }
+    .swiper-slide {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+      text-align: center;
+    }
+    .swiper-slide h1 {
+      font-size: 3rem;
+      color: #1a73e8;
+      margin-bottom: 0.5em;
+    }
+    .swiper-slide h2 {
+      font-size: 2rem;
+      margin-bottom: 1em;
+    }
+    .swiper-slide p {
+      font-size: 1.1rem;
+      max-width: 600px;
+      line-height: 1.5;
+    }
+
+    /* Стили для таблицы на 4-м слайде */
+    .slide4 table {
+      border-collapse: collapse;
+      width: 100%;
+      max-width: 500px;
+      margin: 1rem auto;
+    }
+    .slide4 th,
+    .slide4 td {
+      border: 1px solid #ccc;
+      padding: 0.5rem;
+    }
+    .slide4 th {
+      background: #1a73e8;
+      color: white;
+    }
+
+    /* Пагинация (точки) */
+    .swiper-pagination-bullet {
+      background: #888;
+      opacity: 1;
+    }
+    .swiper-pagination-bullet-active {
+      background: #1a73e8;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Слайдер -->
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <!-- Слайд 1 -->
+      <div class="swiper-slide slide1">
+        <h1>Understanding Virality in Social Media</h1>
+        <h2>Platform, Content, and Emotional Drivers</h2>
+        <p>Zhuldyz Askarbekkyzy</p>
+      </div>
+
+      <!-- Слайд 2 -->
+      <div class="swiper-slide slide2">
+        <h2>What Makes a Post Go Viral?</h2>
+        <p>
+          Social media plays a big role in today’s communication, but only a few posts go truly viral.
+          This project explores what makes a post viral by analyzing
+          <strong>5,000 top-performing posts</strong> from TikTok, Instagram, YouTube, and Twitter.
+        </p>
+      </div>
+
+      <!-- Слайд 3 -->
+      <div class="swiper-slide slide3">
+        <h2>Dataset Overview</h2>
+        <p>
+          We analyzed a dataset of <strong>5,000 viral social media posts</strong> from TikTok, Instagram,
+          YouTube, and Twitter. Each record includes views, likes, shares, comments, main hashtag,
+          content type, and platform.
+        </p>
+      </div>
+
+      <!-- Слайд 4 -->
+      <div class="swiper-slide slide4">
+        <h2>High-Engagement Posts by Platform</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Platform</th>
+              <th>High-Engagement Posts</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>TikTok</td>     <td>450</td></tr>
+            <tr><td>Instagram</td>  <td>400</td></tr>
+            <tr><td>YouTube</td>    <td>250</td></tr>
+            <tr><td>Twitter</td>    <td>150</td></tr>
+          </tbody>
+        </table>
+        <p>
+          TikTok leads with ~36% of viral hits, Instagram ~32%, YouTube+Twitter ~32% together.
+        </p>
+      </div>
     </div>
 
-    <!-- Слайд 2 -->
-    <div class="swiper-slide slide2">
-      <h2>What Makes a Post Go Viral?</h2>
-      <p>
-        Social media plays a big role in today’s communication, but only a few posts go truly viral.
-        This project explores what makes a post viral by analyzing
-        <strong>5,000 top-performing posts</strong> from TikTok, Instagram, YouTube, and Twitter.
-      </p>
-    </div>
-
-    <!-- Слайд 3 -->
-    <div class="swiper-slide slide3">
-      <h2>Dataset Overview</h2>
-      <p>
-        We analyzed a dataset of <strong>5,000 viral social media posts</strong> from TikTok, Instagram,
-        YouTube, and Twitter. Each record includes views, likes, shares, comments, main hashtag,
-        content type, and platform.
-      </p>
-    </div>
-
-    <!-- Слайд 4 -->
-    <div class="swiper-slide slide4">
-      <h2>High-Engagement Posts by Platform</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Platform</th>
-            <th>High-Engagement Posts</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>TikTok</td>     <td>450</td></tr>
-          <tr><td>Instagram</td>  <td>400</td></tr>
-          <tr><td>YouTube</td>    <td>250</td></tr>
-          <tr><td>Twitter</td>    <td>150</td></tr>
-        </tbody>
-      </table>
-      <p>
-        TikTok leads with ~36% of viral hits, Instagram ~32%, YouTube+Twitter ~32% вместе.
-      </p>
-    </div>
+    <!-- Точки-пагинация -->
+    <div class="swiper-pagination"></div>
   </div>
 
-  <!-- пагинация -->
-  <div class="swiper-pagination"></div>
-</div>
-
-<!-- 3) Подключаем скрипт Swiper перед </body> -->
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-<script>
-  const swiper = new Swiper('.swiper-container', {
-    // включаем навигационные точки
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true
-    },
-    // прокрутка мышью / тачем
-    mousewheel: true,
-    keyboard: true,
-    loop: false
-  });
-</script>
-
+  <!-- Swiper JS -->
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script>
+    const swiper = new Swiper('.swiper-container', {
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true
+      },
+      mousewheel: true,
+      keyboard: true,
+      loop: false
+    });
+  </script>
+</body>
+</html>
