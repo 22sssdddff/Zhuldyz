@@ -1,104 +1,79 @@
-<div class="swiper-wrapper">
-  <!-- Слайд 1 -->
-  <div class="swiper-slide slide1">
-    <h1>Understanding Virality in Social Media</h1>
-    <h2>Platform, Content, and Emotional Drivers</h2>
-    <p>Zhuldyz Askarbekkyzy</p>
+<!-- 1) Подключаем стили Swiper в <head> -->
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/swiper/swiper-bundle.min.css"
+/>
+
+<!-- 2) В теле страницы -->
+<div class="swiper-container">
+  <div class="swiper-wrapper">
+    <!-- Слайд 1 -->
+    <div class="swiper-slide slide1">
+      <h1>Understanding Virality in Social Media</h1>
+      <h2>Platform, Content, and Emotional Drivers</h2>
+      <p>Zhuldyz Askarbekkyzy</p>
+    </div>
+
+    <!-- Слайд 2 -->
+    <div class="swiper-slide slide2">
+      <h2>What Makes a Post Go Viral?</h2>
+      <p>
+        Social media plays a big role in today’s communication, but only a few posts go truly viral.
+        This project explores what makes a post viral by analyzing
+        <strong>5,000 top-performing posts</strong> from TikTok, Instagram, YouTube, and Twitter.
+      </p>
+    </div>
+
+    <!-- Слайд 3 -->
+    <div class="swiper-slide slide3">
+      <h2>Dataset Overview</h2>
+      <p>
+        We analyzed a dataset of <strong>5,000 viral social media posts</strong> from TikTok, Instagram,
+        YouTube, and Twitter. Each record includes views, likes, shares, comments, main hashtag,
+        content type, and platform.
+      </p>
+    </div>
+
+    <!-- Слайд 4 -->
+    <div class="swiper-slide slide4">
+      <h2>High-Engagement Posts by Platform</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Platform</th>
+            <th>High-Engagement Posts</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>TikTok</td>     <td>450</td></tr>
+          <tr><td>Instagram</td>  <td>400</td></tr>
+          <tr><td>YouTube</td>    <td>250</td></tr>
+          <tr><td>Twitter</td>    <td>150</td></tr>
+        </tbody>
+      </table>
+      <p>
+        TikTok leads with ~36% of viral hits, Instagram ~32%, YouTube+Twitter ~32% вместе.
+      </p>
+    </div>
   </div>
 
-  <!-- Слайд 2 -->
-  <div class="swiper-slide slide2">
-    <h2>What Makes a Post Go Viral?</h2>
-    <p>
-      Social media plays a big role in today’s communication, but only a few posts go truly viral.
-      This project explores what makes a post viral by analyzing
-      <strong>5,000 top-performing posts</strong> from TikTok, Instagram, YouTube, and Twitter.
-    </p>
-    <p>
-      It focuses on <strong>platform differences, content types, and emotions</strong>
-      to understand which factors drive views, likes, shares, and comments.
-    </p>
-  </div>
+  <!-- пагинация -->
+  <div class="swiper-pagination"></div>
+</div>
 
-  <!-- Слайд 3 -->
-  <div class="swiper-slide slide3">
-    <h2>Dataset Overview</h2>
-    <p>
-      This project analyzes a dataset of <strong>5,000 viral social media posts</strong>
-      collected from TikTok, Instagram, YouTube, and Twitter. Each post includes key
-      engagement data — such as views, likes, shares, and comments — along with its
-      main hashtag, content type, and platform.
-    </p>
-    <p>
-      The dataset covers trending topics like fitness, education, challenges,
-      comedy, and more. By focusing on the top-performing posts, the analysis explores:
-    </p>
-    <ul>
-      <li>How different platforms support virality</li>
-      <li>Which hashtags and content types are most effective</li>
-      <li>How engagement metrics relate to each other</li>
-    </ul>
-    <p>
-      In addition, a smaller subset of <strong>500 posts</strong> was examined for
-      emotional tone, helping to understand how emotions like <em>joy, anger, or love</em>
-      contribute to virality.
-    </p>
-  </div>
-</div>
-<!-- Слайд 4: High Engagement by Platform -->
-<div class="swiper-slide slide4">
-  <h2>High-Engagement Posts by Platform</h2>
-  <p class="subtitle">
-    Short-form video rules: TikTok &amp; Instagram drive most viral hits.
-  </p>
-  <table>
-    <thead>
-      <tr>
-        <th>Platform</th>
-        <th>High-Engagement Posts</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr><td>TikTok</td><td>450</td></tr>
-      <tr><td>Instagram</td><td>400</td></tr>
-      <tr><td>YouTube</td><td>250</td></tr>
-      <tr><td>Twitter</td><td>150</td></tr>
-    </tbody>
-  </table>
-</div>
-/* Слайд 4 */
-.slide4 {
-  background: #f7f9fc;
-  color: #222;
-}
-.slide4 h2 {
-  font-size: 2em;
-  color: #1a73e8;
-  margin-bottom: 0.3em;
-}
-.slide4 .subtitle {
-  font-size: 1em;
-  margin-bottom: 1em;
-  max-width: 600px;
-}
-.slide4 table {
-  border-collapse: collapse;
-  width: 100%;
-  max-width: 500px;
-  margin: 0 auto;
-}
-.slide4 th, .slide4 td {
-  border: 1px solid #ccc;
-  padding: 8px 12px;
-}
-.slide4 th {
-  background: #e8f0fe;
-  font-weight: 600;
-}
-.slide4 tbody tr:nth-child(odd) {
-  background: #fff;
-}
-.slide4 tbody tr:nth-child(even) {
-  background: #f1f3f5;
-}
+<!-- 3) Подключаем скрипт Swiper перед </body> -->
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script>
+  const swiper = new Swiper('.swiper-container', {
+    // включаем навигационные точки
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true
+    },
+    // прокрутка мышью / тачем
+    mousewheel: true,
+    keyboard: true,
+    loop: false
+  });
+</script>
 
