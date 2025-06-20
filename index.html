@@ -5,34 +5,27 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0" />
   <title>Understanding Virality</title>
 
-  <!-- Swiper стили -->
-  <link
-    rel="stylesheet"
-    href="https://unpkg.com/swiper/swiper-bundle.min.css"
-  />
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 
   <style>
-    /* сброс */
-    * { box-sizing: border-box; margin:0; padding:0; }
-    html, body { height:100%; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; font-family: Arial, sans-serif; }
 
-    /* контейнер слайдера на весь экран */
     .swiper-container {
       width: 100%;
       height: 100%;
     }
 
-    /* каждый слайд */
     .swiper-slide {
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
-      padding: 0 20px;
+      padding: 20px;
     }
 
-    /* стили для титула */
     .slide1 {
       background: linear-gradient(135deg, #0093E9, #80D0C7);
       color: white;
@@ -51,7 +44,6 @@
       opacity: 0.9;
     }
 
-    /* стили для контента */
     .slide2 {
       background: #f0f5fa;
       color: #333;
@@ -71,13 +63,43 @@
       color: #0077b6;
     }
 
-    /* навигационные стрелки */
-    .swiper-button-next,
-    .swiper-button-prev {
-      color: #0077b6;
+    .slide3 {
+      background: #ffffff;
+      color: #222;
+    }
+    .slide3 h2 {
+      font-size: 2em;
+      color: #333;
+      margin-bottom: 0.6em;
+    }
+    .slide3 p {
+      max-width: 750px;
+      font-size: 1.1em;
+      line-height: 1.5;
+      color: #444;
     }
 
-    /* пагинация точками */
+    .slide4 {
+      background: #fefefe;
+      color: #222;
+    }
+    .slide4 h2 {
+      font-size: 2em;
+      color: #2a2a2a;
+      margin-bottom: 0.5em;
+    }
+    .slide4 p {
+      max-width: 750px;
+      font-size: 1.1em;
+      line-height: 1.5;
+      color: #444;
+      margin-bottom: 1em;
+    }
+
+    /* arrows and dots */
+    .swiper-button-next, .swiper-button-prev {
+      color: #0077b6;
+    }
     .swiper-pagination-bullet {
       background: #0077b6;
       opacity: 0.6;
@@ -89,17 +111,17 @@
 </head>
 <body>
 
-  <!-- Swiper -->
   <div class="swiper-container">
     <div class="swiper-wrapper">
-      <!-- Слайд 1: Титул -->
+
+      <!-- Slide 1 -->
       <div class="swiper-slide slide1">
         <h1>Understanding Virality in Social Media</h1>
         <h2>Platform, Content, and Emotional Drivers</h2>
         <p>Zhuldyz Askarbekkyzy</p>
       </div>
 
-      <!-- Слайд 2: Контент -->
+      <!-- Slide 2 -->
       <div class="swiper-slide slide2">
         <h2>What Makes a Post Go Viral?</h2>
         <p>
@@ -112,12 +134,39 @@
           to understand which factors drive views, likes, shares, and comments.
         </p>
       </div>
+
+      <!-- Slide 3 -->
+      <div class="swiper-slide slide3">
+        <h2>High Engagement Posts by Platform</h2>
+        <p>
+          TikTok and Instagram dominate in high-engagement posts, with algorithms that promote viral content.
+          This chart shows how platforms compare.
+        </p>
+        <img src="images/high%20en%20cs%20post.png" alt="High Engagement Posts Chart"
+             style="max-width: 80%; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); margin-top: 20px;">
+      </div>
+
+      <!-- Slide 4 -->
+      <div class="swiper-slide slide4">
+        <h2>Top Hashtags and Content Types</h2>
+        <p>
+          Some content themes show strong links to high engagement. Hashtags like <strong>#Fitness</strong>,
+          <strong>#Comedy</strong>, and <strong>#Challenge</strong> stand out across multiple performance levels,
+          with #Fitness dominating high tiers.
+        </p>
+        <p>
+          Meanwhile, hashtags like <strong>#Dance</strong> appear more in lower engagement clusters,
+          suggesting some oversaturation or variance in appeal.
+        </p>
+        <img src="images/hashted%20cs.png" alt="Hashtag Heatmap"
+             style="max-width: 80%; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); margin-top: 20px;">
+      </div>
+
     </div>
 
-    <!-- Кнопки навигации -->
+    <!-- Arrows and Pagination -->
     <div class="swiper-button-prev"></div>
     <div class="swiper-button-next"></div>
-    <!-- Пагинация -->
     <div class="swiper-pagination"></div>
   </div>
 
@@ -139,14 +188,6 @@
       },
     });
   </script>
+
 </body>
 </html>
-<!-- Слайд 3: High Engagement by Platform -->
-<div class="swiper-slide slide3">
-  <h2>High Engagement Posts by Platform</h2>
-  <p>
-    TikTok and Instagram dominate in high-engagement posts, with algorithms that promote viral content. This chart shows how platforms compare.
-  </p>
-  <img src="images/high%20en%20cs%20post.png" alt="Chart of High Engagement Posts" style="max-width: 80%; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); margin-top: 20px;">
-</div>
-
