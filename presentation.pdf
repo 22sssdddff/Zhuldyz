@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Understanding Virality</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #dfe9f3, #ffffff);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: #222;
+    }
+    .card {
+      text-align: center;
+      border-radius: 20px;
+      padding: 40px;
+      background: white;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+      max-width: 700px;
+      margin: 20px;
+    }
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 0.5em;
+      color: #1a73e8;
+    }
+    h2 {
+      font-weight: normal;
+      font-size: 1.2em;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Understanding Virality in Social Media</h1>
+    <h2>Platform, Content, and Emotional Drivers</h2>
+    <p style="margin-top: 40px; font-size: 1em;">Zhuldyz Askarbekkyzy</p>
+  </div>
+</body>
+</html>
